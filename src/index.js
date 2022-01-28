@@ -1,16 +1,28 @@
 import './styles.css';
 import fetchCountries from './js/fetchCountries';
-// import countriesTpl from './templates/countries.hbs';
-// import countriesListTpl from './templates/countries-list';
+import countriesTpl from './js/templates/countries';
+import countriesListTpl from './js/templates/countries-list';
 import refs from './js/refs';
 import debounce from 'lodash.debounce';
 import toastr from 'toastr';
-// import options from './js/toastr.options';
+import options from './js/toastr.options';
 
-// toastr.options = options;
+toastr.options = options;
+
+console.log('Введіть країну');
+// refs.input = 'Sweden';
+console.dir(refs.input);
 
 refs.input.addEventListener('input', debounce(inputCountry, 1000));
 
+// refs.input.value.addEventListener(
+//   'input',
+//   debounce(() => {
+//     console.log(`Ми `);
+//   }, 1000),
+// );
+// refs.input.addEventListener('input', inputCountry);
+console.log('Ми ждемо');
 function updateCountriesListMarkup(countries) {
   const markup = countriesListTpl(countries);
   refs.countriesList.insertAdjacentHTML('beforeend', markup);
@@ -33,16 +45,19 @@ function markupCountry(data) {
   clearC();
   if (data.length > 10) {
     toastr.error('Too many matches found! Please enter a more specific query!');
+    // console.log('Too many matches found! Please enter a more specific query!');
     return;
   }
   if (data.length > 1 && data.length <= 10) {
     updateCountriesListMarkup(data);
-    // toastr.clear();
+    toastr.clear();
+    // console.log('Виводимо список країн 2-10');
     return;
   }
   if (data.length === 1) {
     updateCountriesMarkup(data);
     toastr.clear();
+    // console.log('Виводимо відомості про країну');
     return;
   }
 }
