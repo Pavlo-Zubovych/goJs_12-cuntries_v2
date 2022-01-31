@@ -14,8 +14,15 @@ body {
   background-color: rgb(194, 184, 173);
 }
 
-h1 {
-  color: rgb(15, 66, 14);
+h2 {
+  color: rgb(88, 36, 2);
+  /* margin-left: 20px; */
+  /* margin-right: 20px; */
+  /* padding-left: 0px; */
+  padding: 15px 0px 0px 85px;
+}
+.search-form {
+  padding: 0px 0px 0px 20px;
 }
 
 .js-input {
