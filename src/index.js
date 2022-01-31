@@ -9,20 +9,16 @@ import options from './js/toastr.options';
 
 toastr.options = options;
 
-console.log('Введіть країну');
-// refs.input = 'Sweden';
-console.dir(refs.input);
+function inputValue() {
+  console.log(`Значення: ${input.value}`); // refs.input.value
+}
 
-refs.input.addEventListener('input', debounce(inputCountry, 1000));
+// let callbackDebounce2 = debounce(inputValue, 2000);
 
-// refs.input.value.addEventListener(
-//   'input',
-//   debounce(() => {
-//     console.log(`Ми `);
-//   }, 1000),
-// );
-// refs.input.addEventListener('input', inputCountry);
-console.log('Ми ждемо');
+// refs.input.addEventListener('input', callbackDebounce2);
+
+refs.input.addEventListener('input', inputCountry);
+
 function updateCountriesListMarkup(countries) {
   const markup = countriesListTpl(countries);
   refs.countriesList.insertAdjacentHTML('beforeend', markup);
