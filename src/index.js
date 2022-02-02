@@ -9,15 +9,9 @@ import options from './js/toastr.options';
 
 toastr.options = options;
 
-function inputValue() {
-  console.log(`Значення: ${input.value}`); // refs.input.value
-}
+let callbackDebounce = debounce(inputCountry, 2000);
 
-// let callbackDebounce2 = debounce(inputValue, 2000);
-
-// refs.input.addEventListener('input', callbackDebounce2);
-
-refs.input.addEventListener('input', inputCountry);
+refs.input.addEventListener('input', callbackDebounce);
 
 function updateCountriesListMarkup(countries) {
   const markup = countriesListTpl(countries);
