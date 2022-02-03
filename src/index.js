@@ -34,8 +34,8 @@ function inputCountry() {
 function markupCountry(data) {
   clearC();
   if (data.length > 10) {
-    toastr.error('Too many matches found! Please enter a more specific query!');
-    // console.log('Too many matches found! Please enter a more specific query!');
+    toastr.error('Знайдено забагато збігів! Будь ласка, введіть більш конкретний запит!');
+    // console.log('Знайдено забагато збігів! Будь ласка, введіть більш конкретний запит!');
     return;
   }
   if (data.length > 1 && data.length <= 10) {
